@@ -1,0 +1,38 @@
+body{
+    background-color:rgb(240, 226, 222);
+}
+.img{
+    float:right;
+    width:250px;
+    height:290px; 
+    
+    padding: 8px; 
+}
+.img1{
+    margin-left: 20px;
+    float:left;
+    width:230px;
+    height:190px; 
+    border-radius: 120px;
+    padding: 8px; 
+}
+#download{
+margin-top: 40px;    
+float:right;
+background-color: rgb(31, 15, 170);
+color: white;
+font-size: 20px;
+display: flex;
+height: 32px;
+border-radius: 25px;
+border: 2px solid black;
+margin-right: 20px;
+font-family: 'Times New Roman', Times, serif;
+cursor: pointer;
+
+}
+#x{
+    color: rgb(20, 18, 18);
+    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+}

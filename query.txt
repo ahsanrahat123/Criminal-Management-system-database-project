@@ -1,0 +1,476 @@
+drop table login_
+
+CREATE TABLE login_ (
+    log_in_officers_name varchar(255),
+    log_in_officers_nid varchar(255)  ,
+    log_in_officers_rank varchar(255),
+    log_in_officers_id varchar(255),
+    log_in_officers_email varchar(255),
+    log_in_officers_acc_type varchar(255),
+    log_in_username varchar(255),
+    log_in_password  varchar(255)
+);
+
+create view huh as 
+select login_.log_in_officers_name, login_.log_in_officers_nid,login_.log_in_officers_rank,login_.log_in_officers_email,  login_.log_in_username
+FROM login_ WHERE login_.log_in_officers_acc_type= 'Non_Admin';
+
+
+select * from contactt
+
+commit
+select * from login_ 
+select * from cvc
+select * from criminal
+select * from law
+delete law where law_no=12
+
+select * from case
+INSERT into login_ values('ahsan rahat','0123456789','dsp','0123456','ahsan@gmail.com','Admin','ahsan','bibh')
+INSERT into login_ values('tanjim sakib','012345678','dsp','01234567','bibh@gmail.com','Non_Admin','bibh','bibh')
+
+delete login_
+
+SELECT log_in_officers_name FROM login_ WHERE log_in_username= 'bibh' AND log_in_password = 'bibh' AND log_in_officers_nid ='012345678' AND log_in_officers_acc_type='Non_Admin'
+
+drop table criminal
+
+ insert into cvc values(01,200,300)
+
+select * from criminal
+select * from case
+select * from victim
+select * from cvc
+
+INSERT into criminal values('123','Syed Taha','malibag, dhaka','free',23,3310 ,'10-apr-1998')
+INSERT into criminal values('1234','Syed Taha','malibag, dhaka','Wanted',23,3310 ,'10-apr-1998')
+
+ INSERT into case values(200,'rape')
+INSERT into cvc values(123,2,2)
+
+
+drop table Lawyer
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ select * from case
+ 
+ 
+create table case(
+case_no number(3) primary key,
+case_type varchar2(12)
+);
+
+
+create table criminal(
+criminal_id varchar2(20) primary key,
+criminal_name varchar2(20) ,
+criminal_address varchar2(30),
+present_status varchar2(20),
+criminal_age number(2),
+national_id number(10),
+criminal_dob date
+);
+
+select * from lawyer
+INSERT into lawyer values('1234','Syed Taha', 01111 ,'malibag, dhaka', '123')
+
+commit
+create table Lawyer(
+Lawyer_national_id varchar2(20) primary key,
+Lawyer_name varchar2(20),
+Lawyer_contact number(11),
+lawyer_address varchar2(20),
+criminal_id varchar2(20),
+foreign key(criminal_id) references criminal(criminal_id)
+
+);
+select  * from Lawyer
+DELETE victim where victim_id='1'
+DELETE Lawyer where Lawyer_name='1'
+insert into Lawyer values('123','rafi',0123,'dhaka','123')
+
+create table victim(
+victim_id varchar2(12) primary key,
+victim_name varchar2(20),
+victim_address_postal_code varchar2(12),
+victim_address_street varchar2(12),
+victim_address_house_no varchar2(12),
+victim_no number(2)
+);
+SELECT * FROM victim
+
+
+create table cvc(
+criminal_id varchar2(20),
+victim_id  varchar2(12),
+case_no number(3),
+foreign key(criminal_id) references criminal(criminal_id),
+foreign key(victim_id) references victim(victim_id),
+foreign key(case_no) references case(case_no)
+);
+
+create table law(
+law_no number(2) primary key,
+remarks varchar2(80)
+);
+
+drop table lc  
+drop table law
+
+create table station1(
+station_id varchar2(12) primary key, 
+station_name varchar2(12),
+ 
+area_postal_code varchar2(12),
+area_division varchar2(12),
+area_zilla varchar2(12),
+case_no number(3),
+foreign key(case_no) references case(case_no)
+);
+drop table station
+drop table case
+
+
+create table officer(
+officer_id varchar2(20),
+officer_name varchar(20),
+rankk varchar2(12),
+hiring_date date,
+prev_station varchar(12),
+officer_contact number(11),
+station_id varchar2(12),
+foreign key(station_id) references station(station_id)
+on delete cascade
+);
+
+
+create table witness(
+witness_id varchar2(12) primary key,
+witness_name varchar2(20),
+witness_address varchar2(20),
+witness_contact number(11) check(witness_contact>999999999),
+case_no number(3),
+foreign key(case_no) references case(case_no)
+on delete cascade
+
+);
+
+drop table witness
+select * from witness
+commit
+
+create table fir(
+fir_no number(3) primary key,
+fir_date date,
+place_incident varchar2(12),
+case_no number(3),
+foreign key(case_no) references case(case_no)
+);
+
+create table lc(
+law_no number(2),
+criminal_id varchar2(20),
+foreign key(law_no) references law(law_no),
+foreign key(criminal_id) references criminal(criminal_id)
+
+);
+ 
+ 
+ insert into lc values (1,'123')
+ 
+ 
+ 
+ 
+SELECT c.criminal_id,Lawyer_name 
+FROM  criminal c
+JOIN Lawyer l on  c.criminal_id=l.criminal_id
+where  c.criminal_id = '123';
+ 
+ 
+ 
+create table contactt(
+contactt_id number(11) ,
+station_id varchar2(12),
+foreign key(station_id) references station1(station_id)
+);
+ 
+ 
+ 
+ 
+ 
+ 
+ select * from contactt
+ 
+  select * from  fir
+ 
+ 
+ 
+ 
+ 
+ 
+Create Procedure 
+delete_data(id_ IN varchar2 )
+AS
+BEGIN 
+
+ DELETE FROM  Lawyer WHERE  criminal_id=id_; 
+ 
+ DELETE FROM cvc WHERE  criminal_id=id_; 
+ 
+ DELETE FROM  criminal WHERE  criminal_id=id_;  
+ 
+
+
+ 
+END;
+ 
+ 
+BEGIN
+delete_data('147' );
+END;
+ drop procedure delete_data
+ 
+ select *from station1
+ 
+ 
+ 
+ 
+ drop procedure update_name
+Create Procedure 
+update_name(id_ IN varchar2,name_ IN varchar2 )
+AS
+BEGIN 
+
+UPDATE  criminal
+SET criminal_name = name_  
+WHERE criminal_id =id_  ;
+ 
+
+
+ 
+END;
+
+commit
+
+drop procedure update_name
+
+ 
+
+
+
+Create Procedure 
+update_address(id_ IN varchar2,name_ IN varchar2 )
+AS
+BEGIN 
+
+UPDATE  criminal
+SET criminal_address = name_  
+WHERE criminal_id =id_  ;
+ 
+
+
+ 
+END;
+
+
+
+
+Create Procedure 
+update_status(id_ IN varchar2,name_ IN varchar2 )
+AS
+BEGIN 
+
+ UPDATE  criminal
+SET present_status = name_  
+WHERE criminal_id =id_  ;
+ 
+
+
+ 
+END;
+
+
+Create Procedure 
+update_age(id_ IN varchar2,name_ IN number )
+AS
+BEGIN 
+
+UPDATE  criminal
+SET  criminal_age = name_  
+WHERE criminal_id =id_  ;
+ 
+
+
+ 
+END;
+
+
+ drop procedure update_age
+Create Procedure 
+update_id(id_ IN varchar2,name_ IN number )
+AS
+BEGIN 
+
+UPDATE  criminal
+SET national_id = name_  
+WHERE criminal_id =id_  ;
+ 
+
+
+ 
+END;
+
+commit
+
+SELECT * FROM criminal
+
+
+
+
+
+
+insert into law values(1,'Penal Code 1860');
+
+insert into law values(2,'The Code of Criminal Procedure');
+
+insert into law values(3,'Evidence Act 1872');
+
+insert into law values(4,'The Cattle Trespass Act 1871');
+
+insert into law values(5,'The Explosive Substances Act 1908');
+
+insert into law values(6,'The Prevention of Corruption Act 1947'); 
+
+insert into law values(7,'The Anti-Corruption Act 1957');
+
+insert into law values(8,'The Special Powers Act 1974');
+
+insert into law values(9,'The Dowry Prohibition Act 2018');
+insert into law values(10,'The Narcotics (Control) Act 1990'); 
+
+insert into law values(11,'Prevention of  Women and Children suppression Act 2000');
+
+insert into law values(12,'The Anti-Terrorism Act 2013');
+
+insert into law values(13,'Right to information act 2009');
+
+insert into law values(14,'Mobile court act 2009');
+
+insert into law values(15,'Official secret act 1923');
+
+insert into law values(16,'Road safety act 2018');
+
+insert into law values(17,'ICT act 2006');
+
+insert into law values(18,'Police act 1861');
+
+insert into law values(19,'Human trafficking prevention and control  act 2013');
+
+insert into law values(20,'Speedy trial act 2002');
+
+insert into law values(21,'The acid crime prevention act 2002');
+
+insert into law values(22,'The money laundering prevention act 2002');
+
+insert into law values(23,'Safe food act 2013');
+
+insert into law values(24,'The consumers Right Protection act 2013');
+
+insert into law values(25,'Supreme Court Indignity Ac 2009');
+
+insert into law values(26,'Metropolitan Police Ordinance DMP and others');
+
+insert into law values(27,'Public Examination act 1980');
+
+insert into law values(28,'The Children act 2013');
+
+insert into law values(29,'The Passport Offences act 1952');
+
+insert into law values(30,'Bangladesh Labor act 2006');
+
+insert into law values(31,'DNA Act 2014');
+
+
+select * from law
+
+create sequence wit_id_sqe
+start with 1
+increment by 1
+
+select criminal_name||' has violated '||remarks
+from criminal c join lc 
+on c.criminal_id=lc.criminal_id
+join law
+on lc.law_no=law.law_no
+where c.criminal_id='123';
+
+
+
+
+
+create table crim(
+crim_id varchar2(20),
+crim_a varchar2(50)
+);
+
+CREATE TRIGGER crim_trg
+AFTER 
+INSERT OR DELETE OR UPDATE of present_status
+ON criminal
+for each row
+when(old.present_status='wanted')
+
+DECLARE
+  cri varchar2(50);
+BEGIN
+       if inserting then
+       cri:='insert';
+       elsif deleting then
+       cri:='delete';
+       elsif updating then
+       cri:='update';
+       else
+       cri:='other';
+       end if;
+       insert into crim values (person_id_sqe.nextval,cri);
+ END;  
+ 
+ 
+ drop trigger  crim_trg
+       select * from crim
+       select * from criminal
+
+create sequence person_id_sqe
+start with 1
+increment by 1
+
+
+
+
+
+ 
+
+
+ 
+
+commit

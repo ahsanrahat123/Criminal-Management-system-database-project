@@ -1,0 +1,73 @@
+body{
+   
+  background:url('bo.jpg');
+  
+    }
+    #form{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      text-align: center;                                                                                       
+      z-index: 999;
+      width:250px;
+      padding: 60px 32px;
+      background: rgba(5, 5, 4, 0.7);
+      box-shadow: -1px 4px 28px 0px(0,0,0,0.75);
+                    
+    }
+    
+    .header{
+    color: blanchedalmond;
+    font-size: 30px;
+    font-weight: 600;
+    margin:0 0 35px;
+    font-family: 'Montserrat',sans-serif;
+    
+    
+    }
+    .text{
+      color: blanchedalmond;
+      font-size: 20px;
+      font-weight: 500;
+      margin:0 0 20px;
+      font-family: 'Montserrat',sans-serif;
+
+
+    }
+    #user{
+      width: 100%;
+    }
+    #pass{
+      width: 100%;
+    }
+    #btn{
+
+
+      border: 2px solid #f2f3f3;
+      background: none;
+      
+      font-size: 30px;
+      color: #f2f3f3;
+      font-weight: bolder;
+      font-family: "montserrat";
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.8s;
+      position: relative;
+      overflow: hidden;
+      
+    
+    }
+    
+                                                                                                                                                                                                                                                                                                  
+    .yo{
+    position: relative;
+    height:40px;
+    width:100%;                                   
+    display: flex;
+    background: rgba(255,255,255,0.94);
+    
+    
+    
+    }

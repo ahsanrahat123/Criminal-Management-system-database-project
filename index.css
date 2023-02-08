@@ -1,0 +1,54 @@
+
+body{
+  background:url('hi.jpg') !important;
+  
+}
+.header{
+  color: rgb(227, 240, 240) ;
+  font-size: 30px ;
+  font-weight: 600 ;
+  margin:0 0 35px ;
+  position:centre;
+  font-family: 'Montserrat',sans-serif ;
+  
+  
+  }
+  #cont{
+    background-color:rgb(51, 6, 6)!important;
+    color: rgb(238, 232, 232);
+    border-radius: 40px;
+    box-shadow: black;
+    font-size: 22px;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    border: solid 2px rgb(116, 163, 7);
+
+  }
+
+  #bn{
+
+    font-size: 25px;
+    background-color: black;
+    border:solid 2px  rgb(116, 163, 7);
+  }
+  .form-control{
+     
+    border: solid 4px black !important;
+  }
+  #bah{
+    color:cornsilk !important;
+    float: right !important;
+    width: 400px !important;
+    height: 400px !important;
+    background-color:rgb(231, 8, 8) !important;
+
+  }
+  .table table-responsive-md    table-striped table-dark table-hover{
+    color:cornsilk;
+    float: right !important;
+    width: 400px !important;
+    height: 400px !important;
+    background-color:rgb(231, 8, 8) !important;
+
+
+  }
